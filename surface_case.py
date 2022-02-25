@@ -98,11 +98,11 @@ def main():
     # Plot plane
     yy, zz = np.meshgrid(range(-5, 5, 1), range(10, 17, 1))
     xx = 0
-    ax.plot_surface(xx, yy, zz, alpha=0.2)
+    ax.plot_surface(xx, yy, zz, alpha=0.25)
 
-    ax.scatter(X_def * scale_factor, Y_def * scale_factor, Z_def * scale_factor, color="red", marker='o') # Deformed cloud
-    ax.scatter(X * scale_factor, Y * scale_factor, Z * scale_factor, color="blue", marker='o') # Full cloud
-    ax.scatter(X_close * scale_factor, Y_close * scale_factor, Z_close * scale_factor, color="black", marker='o') # Intersected points
+    ax.scatter(X_def * scale_factor, Y_def * scale_factor, Z_def * scale_factor, color="red", marker='o', alpha=0.5) # Deformed cloud
+    ax.scatter(X * scale_factor, Y * scale_factor, Z * scale_factor, color="blue", marker='o', alpha=0.5) # Full cloud
+    ax.scatter(X_close * scale_factor, Y_close * scale_factor, Z_close * scale_factor, color="black", marker='o', alpha=0.5) # Intersected points
     # ax.plot(line[:, 0] * scale_factor, line[:, 1] * scale_factor, line[:, 2] * scale_factor, color="red", linewidth=5) # PCA direction as line
     
     # Plot PCA direction as arrow
@@ -110,7 +110,7 @@ def main():
     quiver_scale_factor = 12
     ax.quiver(line_start[0] * scale_factor, line_start[1] * scale_factor, line_start[2] * scale_factor, 
     direction_vector[0] * quiver_scale_factor, direction_vector[1] * quiver_scale_factor, direction_vector[2] * quiver_scale_factor, 
-    color='red', linewidth=5, arrow_length_ratio=0.1)
+    color='red', linewidth=5, arrow_length_ratio=0.1, alpha=0.8)
 
     plt.show()
 

@@ -37,7 +37,7 @@ def main():
     num_points = filtered_cloud_rod_array.shape[0]
 
     # Plot a subset of the points, otherwise they will blot out the deformed points
-    sample_size = round(num_points / 10)
+    sample_size = round(num_points / 8)
     kept_indices = []
     for _ in range(sample_size):
         kept_indices.append(random.randint(0, num_points))
@@ -77,8 +77,8 @@ def main():
     ax.set_ylim(mid_y - max_range, mid_y + max_range)
     ax.set_zlim(mid_z - max_range, mid_z + max_range)
 
-    ax.scatter(X_def * scale_factor, Y_def * scale_factor, Z_def * scale_factor, color="red", marker='o') # Deformed cloud
-    ax.scatter(X * scale_factor, Y * scale_factor, Z * scale_factor, color="blue", marker='o') # Full cloud
+    ax.scatter(X_def * scale_factor, Y_def * scale_factor, Z_def * scale_factor, color="red", marker='o', alpha=0.5) # Deformed cloud
+    ax.scatter(X * scale_factor, Y * scale_factor, Z * scale_factor, color="blue", marker='o', alpha=0.5) # Full cloud
     ax.plot(line[:, 0] * scale_factor, line[:, 1] * scale_factor, line[:, 2] * scale_factor, color="red", linewidth=5) # PCA direction
 
     # Plot PCA direction as arrow
@@ -86,7 +86,7 @@ def main():
     quiver_scale_factor = 1
     ax.quiver(line_start[0], line_start[1], line_start[2], 
     direction_vector[0] * quiver_scale_factor, direction_vector[1] * quiver_scale_factor, direction_vector[2] * quiver_scale_factor, 
-    color='red', linewidth=5, arrow_length_ratio=1, pivot='tail')
+    color='red', linewidth=5, arrow_length_ratio=1, pivot='tail', alpha=0.8)
 
     plt.show()
 
